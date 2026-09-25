@@ -1,0 +1,137 @@
+# ============================================================
+# Air Mouse - Git Ignore
+# ============================================================
+
+# ------------------------------------------------------------
+# PlatformIO
+# ------------------------------------------------------------
+.pio/
+.piolibdeps/
+.clangd/
+compile_commands.json
+
+# PlatformIO generated files
+firmware/.pio/
+firmware/.pioenvs/
+firmware/.piolibdeps/
+firmware/.clangd/
+firmware/compile_commands.json
+
+# ------------------------------------------------------------
+# Build artifacts
+# ------------------------------------------------------------
+build/
+dist/
+out/
+*.elf
+*.bin
+*.hex
+*.map
+*.eep
+*.uf2
+
+# Firmware dumps / temporary binaries
+*.flash.bin
+*.bootloader.bin
+*.partitions.bin
+
+# ------------------------------------------------------------
+# Python
+# ------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# ------------------------------------------------------------
+# VS Code
+# ------------------------------------------------------------
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+# ------------------------------------------------------------
+# Operating system junk
+# ------------------------------------------------------------
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ------------------------------------------------------------
+# Logs / temporary files
+# ------------------------------------------------------------
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+*.bak
+*.orig
+
+# ------------------------------------------------------------
+# Environment / secrets
+# ------------------------------------------------------------
+.env
+.env.*
+!.env.example
+
+*.pem
+*.key
+*.p12
+*.pfx
+
+# ------------------------------------------------------------
+# Local configuration
+# ------------------------------------------------------------
+*.local
+config.local.*
+secrets/
+.local/
+
+# ------------------------------------------------------------
+# Test / coverage artifacts
+# ------------------------------------------------------------
+.pytest_cache/
+coverage/
+test-results/
+junit.xml
+
+# ------------------------------------------------------------
+# Hardware / CAD generated files
+# ------------------------------------------------------------
+
+# Lock/temp files
+*.lck
+*.lock
+~$*
+
+# Auto-generated exports
+hardware/**/exports/
+hardware/**/gerbers/
+hardware/**/drill/
+enclosure/**/exports/
+
+# ------------------------------------------------------------
+# Personal notes / scratch
+# ------------------------------------------------------------
+scratch/
+tmp/
+temp/
+
+# ------------------------------------------------------------
+# OS / editor backups
+# ------------------------------------------------------------
+*~
