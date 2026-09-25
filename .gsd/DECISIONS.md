@@ -21,4 +21,39 @@
 
 ---
 
+## Phase 1 Discussion & Decisions
+
+**Date:** 2026-09-25
+
+### Scope & Methodology
+- **Approach**: Option B (Analytical + Minimal Build Spikes). Architectural research will be paired with minimal, comparable PlatformIO build spikes for Arduino and ESP-IDF to establish empirical measurements locally.
+- **Spike Constraints**: Spikes are strictly minimal comparison environments to establish comparable metrics and verify BLE HID feasibility — not full duplicate implementations.
+- **Empirical Metrics**:
+  - Clean build time
+  - Incremental build time
+  - Firmware flash size
+  - Static RAM usage / reported memory footprint
+  - Dependency footprint and configuration complexity
+  - Reproducibility from a clean checkout
+- **Measurement Integrity**: Do not treat generic published memory numbers as authoritative. Record configuration, framework/core/PlatformIO versions, build flags, and measurement methodology alongside empirical data.
+
+### Evaluation Criteria Hierarchy
+Decisions will be evaluated strictly in this prioritized order:
+1. Bluetooth HID device capability and implementation quality (BLE mouse X/Y, L/M/R click, scroll, future keyboard/media reports, pairing/reconnection, API stability).
+2. Resource usage and available RAM/flash headroom.
+3. Long-term maintainability and architectural fit.
+4. Development velocity and library ecosystem.
+5. Build/configuration complexity and reproducibility.
+6. Host-testability and ability to keep domain logic framework-independent.
+
+### Architectural Constraint: Framework Independence
+- Domain and application logic (motion filtering, cursor translation, controls, action mapper, configuration schemas) must be strictly decoupled from vendor/framework APIs behind abstract C++ interfaces (e.g. `IImuDriver`, `IHidMouse`, `IStorageService`, `IInputDevice`).
+- Framework selection must remain isolated to the hardware adapter/driver layer so that "domain logic remains testable on native host platforms without requiring the selected embedded framework."
+
+### Deliverables Mandated
+- Comprehensive `docs/decisions/ADR-0009-framework-selection.md` capturing evaluation criteria, configurations tested, empirical measurements, methodology, limitations, rejected alternatives, and final rationale.
+- Synchronization of [docs/FIRMWARE.md §4](file:///d:/Projects/Zephyr%20-%20Airmouse/docs/FIRMWARE.md#L55-L75) and any related project documentation.
+
+---
+
 *Last updated: 2026-09-25*

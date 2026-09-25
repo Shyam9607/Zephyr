@@ -7,22 +7,22 @@ updated: 2026-09-25T13:25:40+05:30
 ## Current Position
 
 **Milestone:** v1.0 (Prototype V1)  
-**Phase:** Ready for Phase 1 — Architecture & Framework Trade-off Research  
-**Status:** Ready to plan  
+**Phase:** Phase 1 — Architecture & Framework Trade-off Research  
+**Status:** Discussion completed; ready to plan  
 **Plan:** None  
 
 ## Last Action
 
-Initialized Zephyr project under GSD framework:
-- Formally finalized [.gsd/SPEC.md](file:///d:/Projects/Zephyr%20-%20Airmouse/.gsd/SPEC.md) reflecting [docs/PRD.md](file:///d:/Projects/Zephyr%20-%20Airmouse/docs/PRD.md) and all engineering constraints.
-- Generated [.gsd/REQUIREMENTS.md](file:///d:/Projects/Zephyr%20-%20Airmouse/.gsd/REQUIREMENTS.md) with full traceability matrix.
-- Created [.gsd/ROADMAP.md](file:///d:/Projects/Zephyr%20-%20Airmouse/.gsd/ROADMAP.md) detailing 5 sequential phases from trade-off research through host testing to hardware validation.
+Completed `/discuss-phase 1` for Architecture & Framework Trade-off Research:
+- Chose Option B (Analytical + Minimal Build Spikes) with empirical local PlatformIO metrics.
+- Prioritized evaluation criteria hierarchy (1: HID capability, 2: Resource headroom, 3: Maintainability, 4: Velocity/ecosystem, 5: Complexity, 6: Host-testability).
+- Established mandatory framework independence constraint (abstract C++ interfaces encapsulating HAL).
+- Documented decisions and deliverables in [.gsd/DECISIONS.md](file:///d:/Projects/Zephyr%20-%20Airmouse/.gsd/DECISIONS.md).
 
 ## Next Steps
 
-1. Run `/discuss-phase 1` or `/plan 1` to create the execution plan for Phase 1 (Architecture & Framework Trade-off Research).
-2. Execute Phase 1: Produce and accept `docs/decisions/ADR-0009-framework-selection.md` comparing Arduino framework vs. ESP-IDF (with NimBLE) for PlatformIO.
-3. Synchronize [docs/FIRMWARE.md](file:///d:/Projects/Zephyr%20-%20Airmouse/docs/FIRMWARE.md) with the accepted framework decision.
+1. Run `/plan 1` to create detailed execution plans for Phase 1.
+2. Execute Phase 1: Setup minimal PlatformIO spikes, collect empirical build/flash/RAM metrics, evaluate BLE HID quality, draft and accept `docs/decisions/ADR-0009-framework-selection.md`, and synchronize [docs/FIRMWARE.md §4](file:///d:/Projects/Zephyr%20-%20Airmouse/docs/FIRMWARE.md#L55-L75).
 
 ## Active Decisions
 
