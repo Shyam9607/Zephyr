@@ -8,21 +8,22 @@ updated: 2026-09-25T13:25:40+05:30
 
 **Milestone:** v1.0 (Prototype V1)  
 **Phase:** Phase 1 — Architecture & Framework Trade-off Research  
-**Status:** Discussion completed; ready to plan  
-**Plan:** None  
+**Status:** Planning complete; ready for execution  
+**Plan:** Ready for Plan 1.1  
 
 ## Last Action
 
-Completed `/discuss-phase 1` for Architecture & Framework Trade-off Research:
-- Chose Option B (Analytical + Minimal Build Spikes) with empirical local PlatformIO metrics.
-- Prioritized evaluation criteria hierarchy (1: HID capability, 2: Resource headroom, 3: Maintainability, 4: Velocity/ecosystem, 5: Complexity, 6: Host-testability).
-- Established mandatory framework independence constraint (abstract C++ interfaces encapsulating HAL).
-- Documented decisions and deliverables in [.gsd/DECISIONS.md](file:///d:/Projects/Zephyr%20-%20Airmouse/.gsd/DECISIONS.md).
+Completed `/plan 1` for Architecture & Framework Trade-off Research:
+- Authored [.gsd/phases/1/RESEARCH.md](file:///d:/Projects/Zephyr%20-%20Airmouse/.gsd/phases/1/RESEARCH.md) establishing technical background, evaluation criteria, and spike protocol.
+- Authored [.gsd/phases/1/1.1-PLAN.md](file:///d:/Projects/Zephyr%20-%20Airmouse/.gsd/phases/1/1.1-PLAN.md) (Wave 1: Minimal PlatformIO Build Spikes & Local Empirical Benchmarks).
+- Authored [.gsd/phases/1/1.2-PLAN.md](file:///d:/Projects/Zephyr%20-%20Airmouse/.gsd/phases/1/1.2-PLAN.md) (Wave 2: Framework Evaluation & ADR-0009 Formulation).
+- Authored [.gsd/phases/1/1.3-PLAN.md](file:///d:/Projects/Zephyr%20-%20Airmouse/.gsd/phases/1/1.3-PLAN.md) (Wave 3: Documentation Synchronization & Phase 1 Verification).
 
 ## Next Steps
 
-1. Run `/plan 1` to create detailed execution plans for Phase 1.
-2. Execute Phase 1: Setup minimal PlatformIO spikes, collect empirical build/flash/RAM metrics, evaluate BLE HID quality, draft and accept `docs/decisions/ADR-0009-framework-selection.md`, and synchronize [docs/FIRMWARE.md §4](file:///d:/Projects/Zephyr%20-%20Airmouse/docs/FIRMWARE.md#L55-L75).
+1. Run `/execute 1` (or execute Plan 1.1) to create PlatformIO spikes in `scratch/spikes/` and capture local empirical measurements.
+2. Proceed to Plan 1.2 to analyze trade-offs and draft `docs/decisions/ADR-0009-framework-selection.md`.
+3. Proceed to Plan 1.3 to synchronize [docs/FIRMWARE.md](file:///d:/Projects/Zephyr%20-%20Airmouse/docs/FIRMWARE.md) and close Phase 1.
 
 ## Active Decisions
 
