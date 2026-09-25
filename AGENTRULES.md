@@ -39,6 +39,50 @@ If implementation and documentation disagree, stop and determine which is author
 
 ---
 
+# 2A. GSD Integration and Source-of-Truth Hierarchy
+
+Zephyr uses GSD as a project planning and execution framework.
+
+GSD's `PROJECT_RULES.md` is authoritative for the **GSD methodology and workflow**.
+
+`AGENTRULES.md` is authoritative for **Zephyr-specific engineering and agent behavior**.
+
+The project follows this source-of-truth hierarchy:
+
+1. `PRD.md`
+   - Defines the product requirements and intended behavior.
+   - Product-level requirements originate here.
+
+2. `docs/`
+   - Contains detailed engineering knowledge.
+   - Includes hardware, controls, architecture, firmware, testing, and decisions.
+   - These documents must remain synchronized with implementation.
+
+3. `.gsd/SPEC.md`
+   - Defines the current GSD execution specification.
+   - It is derived from the product requirements and engineering documentation.
+   - It must not silently introduce requirements that conflict with the PRD or accepted engineering decisions.
+
+4. `.gsd/ROADMAP.md`
+   - Defines the planned implementation phases and execution order.
+
+5. `.gsd/STATE.md`
+   - Records current project position, completed work, verification evidence, known limitations, and handoff state.
+
+If `.gsd/SPEC.md` conflicts with an accepted product requirement, architecture decision, hardware decision, or other authoritative project documentation:
+
+1. Stop implementation.
+2. Identify the conflict.
+3. Determine whether the requirement or decision has intentionally changed.
+4. Update the appropriate source-of-truth document.
+5. Update the GSD specification and affected planning artifacts.
+6. Record an ADR when the change represents a technical or architectural decision.
+
+GSD planning artifacts describe how the work is being executed. They do not replace the project's engineering source of truth.
+
+---
+---
+
 # 3. Documentation Synchronization Rule
 
 ## This is a HARD REQUIREMENT.

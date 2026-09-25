@@ -153,31 +153,56 @@ Potential development assistants include:
 
 These tools are contributors to the workflow, not sources of truth.
 
-**The repository documentation is the source of truth.**
+**The repository documentation is the engineering source of truth.**
+
+### GSD integration
+
+Zephyr uses GSD for project planning and execution.
+
+- `AGENTRULES.md` defines Zephyr-specific engineering and agent behavior.
+- `PROJECT_RULES.md` defines the GSD workflow and execution methodology.
+- `docs/PRD.md` defines the product requirements.
+- `docs/` contains detailed engineering knowledge and decisions.
+- `.gsd/` contains GSD project state and planning artifacts.
+- `.gsd/SPEC.md` is the current GSD execution specification derived from the project requirements and engineering documentation. It does not replace them.
+- `.gsd/ROADMAP.md` tracks planned implementation phases.
+- `.gsd/STATE.md` tracks current project position, verification evidence, limitations, and handoff state.
+
+If a GSD planning artifact conflicts with an accepted product requirement or engineering decision, stop and resolve the conflict through the project's documentation and ADR process before implementation continues.
 
 ---
 
 ## Repository Structure
 
 ```text
-air-mouse/
+Zephyr/
 │
 ├── AGENTRULES.md
-├── PRD.md
+├── PROJECT_RULES.md
+├── GSD-STYLE.md
+├── model_capabilities.yaml
 ├── README.md
 ├── .gitignore
 │
+├── .agent/                    # GSD workflows
+├── .agents/                   # GSD agents and skills
+├── .gemini/                   # GSD/Gemini integration
+├── .gsd/                      # GSD project state
+├── adapters/                  # GSD adapters
+│
 ├── docs/
+│   ├── PRD.md
 │   ├── CONTROLS.md
 │   ├── HARDWARE.md
 │   ├── ARCHITECTURE.md
 │   ├── FIRMWARE.md
 │   ├── TESTING.md
-│   │
-│   ├── decisions/
-│   │   └── ADR-*.md
-│   │
-│   └── specs/
+│   ├── model-selection-playbook.md
+│   ├── runbook.md
+│   ├── token-optimization-guide.md
+│   ├── designidea.excalidraw
+│   └── decisions/
+│       └── ADR-*.md
 │
 ├── datasheets/
 │   ├── esp32/
@@ -185,40 +210,35 @@ air-mouse/
 │   ├── encoder/
 │   └── other/
 │
-├── firmware/
+├── scripts/                   # GSD scripts; project scripts may be added here
+│
+├── firmware/                  # Planned firmware workspace
 │   ├── src/
 │   ├── include/
 │   ├── lib/
 │   └── test/
 │
-├── hardware/
+├── hardware/                  # Planned hardware workspace
 │   ├── prototype/
 │   ├── schematic/
 │   ├── pcb/
 │   └── bom/
 │
-├── enclosure/
+├── enclosure/                 # Planned enclosure workspace
 │   ├── cad/
 │   ├── prototypes/
 │   └── dimensions/
 │
-├── tools/
+├── tools/                     # Planned project utilities
 │   ├── calibration/
 │   ├── diagnostics/
 │   └── utilities/
 │
-├── scripts/
-│   ├── build/
-│   ├── flash/
-│   └── debug/
-│
-└── tests/
+└── tests/                     # Planned project test workspace
     ├── unit/
     ├── integration/
     └── hardware/
 ```
-
----
 
 ## Documentation First
 
@@ -226,15 +246,16 @@ Documentation is treated as part of the engineering system.
 
 | Document | Purpose |
 |---|---|
-| `PRD.md` | Product requirements |
+| `docs/PRD.md` | Product requirements |
 | `AGENTRULES.md` | Rules for human and AI contributors |
+| `PROJECT_RULES.md` | GSD workflow and execution rules |
 | `docs/CONTROLS.md` | Physical controls and interaction behavior |
 | `docs/HARDWARE.md` | Hardware source of truth |
 | `docs/ARCHITECTURE.md` | System architecture |
 | `docs/FIRMWARE.md` | Firmware implementation rules |
 | `docs/TESTING.md` | Testing strategy |
 | `docs/decisions/` | Architecture and engineering decisions |
-| `docs/specs/` | Detailed technical specifications |
+| `.gsd/` | GSD planning and project state |
 
 ### Documentation synchronization
 
@@ -270,6 +291,32 @@ The project follows these principles:
 
 ---
 
+## Development Workflow
+
+The project uses a documentation-first, agent-assisted workflow:
+
+```text
+Requirements
+    ↓
+Architecture / Engineering Documentation
+    ↓
+GSD SPEC
+    ↓
+GSD ROADMAP
+    ↓
+Implementation
+    ↓
+Tests / Verification
+    ↓
+Documentation Synchronization
+    ↓
+Review / Handoff
+```
+
+Every contributor must follow `AGENTRULES.md`. GSD coordinates planning and execution, while the Zephyr engineering documents remain authoritative for product and technical decisions.
+
+Whenever a change is made, perform a documentation impact check and update every affected document in the same change.
+
 ## Project Status
 
 ### Planning
@@ -281,6 +328,8 @@ The project follows these principles:
 - [x] Testing strategy drafted
 - [x] Initial ADRs created
 - [x] Agent rules created
+- [x] GSD workflow installed
+- [ ] GSD project specification finalized
 - [ ] Detailed technical specifications
 - [ ] PlatformIO project initialization
 
