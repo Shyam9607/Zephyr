@@ -8,22 +8,23 @@ updated: 2026-09-25T13:25:40+05:30
 
 **Milestone:** v1.0 (Prototype V1)  
 **Phase:** Phase 1 — Architecture & Framework Trade-off Research  
-**Status:** Planning complete; ready for execution  
-**Plan:** Ready for Plan 1.1  
+**Status:** Plan 1.1 complete; ready for Plan 1.2  
+**Plan:** Plan 1.2 (Framework Evaluation & ADR-0009 Formulation)  
 
 ## Last Action
 
-Completed `/plan 1` for Architecture & Framework Trade-off Research:
-- Authored [.gsd/phases/1/RESEARCH.md](file:///d:/Projects/Zephyr%20-%20Airmouse/.gsd/phases/1/RESEARCH.md) establishing technical background, evaluation criteria, and spike protocol.
-- Authored [.gsd/phases/1/1.1-PLAN.md](file:///d:/Projects/Zephyr%20-%20Airmouse/.gsd/phases/1/1.1-PLAN.md) (Wave 1: Minimal PlatformIO Build Spikes & Local Empirical Benchmarks).
-- Authored [.gsd/phases/1/1.2-PLAN.md](file:///d:/Projects/Zephyr%20-%20Airmouse/.gsd/phases/1/1.2-PLAN.md) (Wave 2: Framework Evaluation & ADR-0009 Formulation).
-- Authored [.gsd/phases/1/1.3-PLAN.md](file:///d:/Projects/Zephyr%20-%20Airmouse/.gsd/phases/1/1.3-PLAN.md) (Wave 3: Documentation Synchronization & Phase 1 Verification).
+Completed Plan 1.1 (Minimal PlatformIO Build Spikes & Local Empirical Benchmarks):
+- Established architecturally equivalent BLE HID mouse spikes (50-byte report map, 4-byte report payload with 3 buttons L/M/R, X/Y movement, wheel, DIS, and mouse appearance) in `scratch/spikes/arduino-nimble` and `scratch/spikes/espidf-nimble`.
+- Executed local PlatformIO builds and captured empirical measurements:
+  - Arduino + NimBLE: Clean 19.43s, Incremental 4.04s, Flash 591,501 bytes (45.1%), Static RAM 35,684 bytes (10.9%).
+  - ESP-IDF + NimBLE: Clean 155.81s, Incremental 5.20s, Flash 446,237 bytes (42.6%), Static RAM 27,132 bytes (8.3%).
+- Documented tooling quirk: ESP-IDF strictly rejects whitespace in workspace directory paths (`espidf.py`), resolved via virtual drive mapping `subst Z:`.
+- Documented complete benchmark results in `scratch/spikes/BENCHMARK_REPORT.md` and produced `.gsd/phases/1/1.1-SUMMARY.md`.
 
 ## Next Steps
 
-1. Run `/execute 1` (or execute Plan 1.1) to create PlatformIO spikes in `scratch/spikes/` and capture local empirical measurements.
-2. Proceed to Plan 1.2 to analyze trade-offs and draft `docs/decisions/ADR-0009-framework-selection.md`.
-3. Proceed to Plan 1.3 to synchronize [docs/FIRMWARE.md](file:///d:/Projects/Zephyr%20-%20Airmouse/docs/FIRMWARE.md) and close Phase 1.
+1. Proceed to Plan 1.2 to analyze trade-offs across the 6 prioritized criteria and draft `docs/decisions/ADR-0009-framework-selection.md`.
+2. Proceed to Plan 1.3 to synchronize [docs/FIRMWARE.md](file:///d:/Projects/Zephyr%20-%20Airmouse/docs/FIRMWARE.md), update decision indexes, and close Phase 1.
 
 ## Active Decisions
 
