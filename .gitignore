@@ -127,7 +127,15 @@ enclosure/**/exports/
 # ------------------------------------------------------------
 # Personal notes / scratch
 # ------------------------------------------------------------
-scratch/
+scratch/*
+!scratch/spikes/
+!scratch/spikes/**
+!scratch/*.ps1
+!scratch/*.py
+scratch/**/.pio/
+scratch/**/.pioenvs/
+scratch/**/.piolibdeps/
+scratch/**/build/
 tmp/
 temp/
 
