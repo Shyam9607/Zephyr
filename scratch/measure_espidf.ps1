@@ -1,7 +1,10 @@
 $pio = "$env:USERPROFILE\.platformio\penv\Scripts\pio.exe"
 
 Write-Host "=== BENCHMARKING ESPIDF-NIMBLE ==="
-Push-Location "scratch/spikes/espidf-nimble"
+if (-not (Test-Path "Z:\")) {
+    & subst Z: "d:\Projects\Zephyr - Airmouse"
+}
+Push-Location "Z:\scratch\spikes\espidf-nimble"
 
 # Clean build
 Write-Host "Running clean..."

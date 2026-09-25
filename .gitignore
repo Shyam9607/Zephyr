@@ -136,6 +136,8 @@ scratch/**/.pio/
 scratch/**/.pioenvs/
 scratch/**/.piolibdeps/
 scratch/**/build/
+scratch/**/sdkconfig.*
+!scratch/**/sdkconfig.defaults
 tmp/
 temp/
 
